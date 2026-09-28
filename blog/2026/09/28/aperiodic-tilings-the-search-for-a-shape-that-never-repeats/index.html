@@ -1,0 +1,1808 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="How matching rules, nested structure, and a remarkable single shape make tilings that cover the plane without ever repeating.">
+      
+      
+        <meta name="author" content="Site Author">
+      
+      
+        <link rel="canonical" href="https://monkroasted.github.io/blog/2026/09/28/aperiodic-tilings-the-search-for-a-shape-that-never-repeats/">
+      
+      
+        <link rel="prev" href="../your-wi-fi-name-is-public-is-it-your-address/">
+      
+      
+      
+        
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../../../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../../../../assets/images/gaz-light-favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Aperiodic tilings: the search for a shape that never repeats - Gaz Light</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/tables.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aperiodic-tilings-the-search-for-a-shape-that-never-repeats" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Gaz Light" class="md-header__button md-logo" aria-label="Gaz Light" data-md-component="logo">
+      
+  <img src="../../../../../assets/images/gaz-light-mark.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Gaz Light
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Aperiodic tilings: the search for a shape that never repeats
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Gaz Light" class="md-nav__button md-logo" aria-label="Gaz Light" data-md-component="logo">
+      
+  <img src="../../../../../assets/images/gaz-light-mark.png" alt="logo">
+
+    </a>
+    Gaz Light
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Categories
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Categories
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/mathematics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mathematics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/privacy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-does-never-repeats-mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What does “never repeats” mean?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#three-ways-tiles-can-prevent-repetition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three ways tiles can prevent repetition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-colored-edges-to-penrose-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From colored edges to Penrose patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="From colored edges to Penrose patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wang-tiles-matching-colors-forbidding-repetition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wang tiles: matching colors, forbidding repetition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robinsons-nested-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robinson’s nested patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#penrose-two-shapes-five-fold-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penrose: two shapes, five-fold order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beyond-five-fold-symmetry-ammannbeenker-and-pinwheel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beyond five-fold symmetry: Ammann–Beenker and Pinwheel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#near-misses-on-the-road-to-one-tile-socolartaylor-gummelt-and-3d-tiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Near-misses on the road to one tile: Socolar–Taylor, Gummelt, and 3D tiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-hat-one-shape-no-periodic-tiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Hat: one shape, no periodic tiling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-spectre-an-aperiodic-tile-that-never-flips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Spectre: an aperiodic tile that never flips
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-these-patterns-matter-beyond-the-puzzle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why these patterns matter beyond the puzzle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why these patterns matter beyond the puzzle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-they-could-be-applied" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where they could be applied
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Where they could be applied">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-pure-mathematics-how-local-rules-control-global-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Pure Mathematics: How Local Rules Control Global Space
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-computer-science-proving-what-computers-can-never-solve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Computer Science: Proving What Computers Can Never Solve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-physics-chemistry-understanding-quasicrystals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Physics &amp; Chemistry: Understanding Quasicrystals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-real-world-materials-engineering-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Real-World Materials &amp; Engineering Applications
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-separating-proven-applications-from-metamaterial-hype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Separating Proven Applications from "Metamaterial" Hype
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explore-further" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explore further
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-credits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image credits
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2026-09-28 00:00:00+00:00" class="md-ellipsis">September 28, 2026</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"/></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../../../category/mathematics/">Mathematics</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              30 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <span class="md-tag">Aperiodic tilings</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">Geometry</span>
+      
+    
+      
+      
+      
+      
+        <span class="md-tag">Quasicrystals</span>
+      
+    
+  </nav>
+
+
+
+<h1 id="aperiodic-tilings-the-search-for-a-shape-that-never-repeats">Aperiodic tilings: the search for a shape that never repeats</h1>
+<p>A tiled floor is usually built from a small repeatable unit. Slide that unit
+sideways or upward and the pattern lines up again. But can shapes cover an
+infinite plane without gaps or overlaps while making <em>every</em> repeating pattern
+impossible?</p>
+<p>Yes. The idea began with colored squares studied by logicians, grew into the
+familiar Penrose patterns, and culminated in 2023 with the <strong>Hat</strong> and the
+<strong>Spectre</strong>: single shapes that tile the plane, but only non-periodically.</p>
+<div class="admonition abstract">
+<p class="admonition-title">TL;DR — The 60-Year Quest in Plain English</p>
+<p>If you tile a floor with squares, bricks, or hexagons, the pattern repeats itself every few centimeters in a predictable grid. For over 60 years, mathematicians asked whether a set of shapes—or even a <strong>single shape</strong>—could cover an infinite flat floor with zero gaps and zero overlaps, while its geometry <strong>forces the pattern never to repeat</strong>. This guide walks through what "aperiodic" really means and how each famous tile set works from the ground up.</p>
+</div>
+<hr />
+<h2 id="what-does-never-repeats-mean">What does “never repeats” mean?</h2>
+<p>A <strong>tiling</strong> covers a surface with copies of shapes, with no gaps or overlaps.
+A tiling is <strong>periodic</strong> if translating it by some non-zero distance leaves
+the entire pattern unchanged. A single unusual patch can disrupt an otherwise
+repeating floor, so mathematicians ask a stronger question:</p>
+<blockquote>
+<p>Can a set of tiles cover the plane, yet make <em>every</em> possible tiling
+non-periodic?</p>
+</blockquote>
+<p>Such a set is <strong>aperiodic</strong>. Its pieces can still appear in repeated local
+arrangements; what is forbidden is a translation that repeats the whole
+infinite pattern. A <strong>monotile</strong> is one shape used in this kind of construction.
+The playful term <em>einstein</em> is a pun on the German <em>ein Stein</em>—“one stone.”</p>
+<div class="admonition tip">
+<p class="admonition-title">The Beginner's Tracing-Paper Test: Periodic vs. Non-Periodic vs. Aperiodic</p>
+<p>Before looking at complex shapes, notice why only three regular polygons can tile a flat floor by themselves: <strong>equilateral triangles</strong> (<span class="arithmatex">\(60^\circ\)</span> corners), <strong>squares</strong> (<span class="arithmatex">\(90^\circ\)</span> corners), and <strong>regular hexagons</strong> (<span class="arithmatex">\(120^\circ\)</span> corners). Where corners meet, their angles must add up to <span class="arithmatex">\(360^\circ\)</span> (<span class="arithmatex">\(6 \times 60^\circ = 360^\circ\)</span>, <span class="arithmatex">\(4 \times 90^\circ = 360^\circ\)</span>, <span class="arithmatex">\(3 \times 120^\circ = 360^\circ\)</span>). Regular pentagons have <span class="arithmatex">\(108^\circ\)</span> corners—three leave a <span class="arithmatex">\(36^\circ\)</span> gap (<span class="arithmatex">\(324^\circ\)</span>), and four overlap (<span class="arithmatex">\(432^\circ\)</span>).</p>
+<p>Now, how do mathematicians test whether a valid tiling "repeats"? Imagine laying a giant sheet of transparent tracing paper over an infinite tiled floor and tracing every grout line:</p>
+<ul>
+<li><strong>Periodic Tiling (Repeats):</strong> If you <strong>slide</strong> (translate) the tracing paper straight in some direction <em>without rotating or flipping it</em>, and every traced line lands back on top of the floor's grout lines at once, the tiling has <strong>translational symmetry</strong> (it is <em>periodic</em>).</li>
+<li><strong>Non-Periodic Tiling (Can Fail to Repeat by Choice):</strong> Imagine an infinite grid of <span class="arithmatex">\(1 \times 1\)</span> squares where you glue just two squares in the middle together to make a single <span class="arithmatex">\(1 \times 2\)</span> rectangle. Now, if you slide the tracing paper, that one rectangle ruins the global match. The floor is technically <em>non-periodic</em>, but only because of a localized flaw—the shapes themselves still easily allow a repeating grid.</li>
+<li><strong>Aperiodic Tile Set (Forced Never to Repeat):</strong> A set of shapes is <strong>aperiodic</strong> if the shapes can cover the infinite plane with zero gaps and zero overlaps, yet <strong>even if you try your hardest to arrange them into a repeating grid, the shapes themselves make repetition impossible</strong>.</li>
+</ul>
+<p><em>Note on Rotation vs. Sliding:</em> An aperiodic tiling <strong>is</strong> allowed to have rotational symmetry around a point (for example, rotating a Penrose tiling by <span class="arithmatex">\(72^\circ\)</span> around its center) and small clusters of tiles will appear infinitely many times across the floor—just never at regular, repeating intervals when you <em>slide</em> the pattern!</p>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Term</th>
+<th style="text-align: left;">Applies To</th>
+<th style="text-align: left;">Beginner Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Periodic</strong></td>
+<td style="text-align: left;">A finished pattern (tiling)</td>
+<td style="text-align: left;">You can slide the entire pattern by some fixed distance and direction, and it lands identically on top of itself.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Non-periodic</strong></td>
+<td style="text-align: left;">A finished pattern (tiling)</td>
+<td style="text-align: left;">Sliding the entire pattern in any direction without rotating never makes the whole infinite pattern match up again.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Aperiodic</strong></td>
+<td style="text-align: left;">A set of tiles (prototiles)</td>
+<td style="text-align: left;">The tiles can cover the infinite plane, and <em>every</em> complete tiling they are capable of forming is guaranteed to be non-periodic.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Einstein (Monotile)</strong></td>
+<td style="text-align: left;">A single tile shape</td>
+<td style="text-align: left;">From German <em>ein Stein</em> ("one stone"): a single shape that forms an aperiodic set all by itself.</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart LR
+    A["Can the shapes tile the plane?"] --&gt;|No| B["Not a tiling set"]
+    A --&gt;|Yes| C{"Can any complete tiling repeat by translation?"}
+    C --&gt;|Yes| D["Periodic tiling is possible"]
+    C --&gt;|No| E["Aperiodic tile set"]</code></pre>
+<hr />
+<h2 id="three-ways-tiles-can-prevent-repetition">Three ways tiles can prevent repetition</h2>
+<p>The surprising part is that a tile does not need to “know” what is happening
+far away. Local rules can force a global structure that has no translational
+period. Three recurring ideas help explain how:</p>
+<ol>
+<li><strong>Matching rules:</strong> edge colors, lines, arrows, or shaped notches restrict
+   which neighbors can meet. A plain set of outlines may tile periodically;
+   the matching rules are part of the mathematical construction.</li>
+<li><strong>Substitution and hierarchy:</strong> a small patch is forced to assemble into a
+   larger patch, which in turn assembles into still larger ones. The
+   ever-growing hierarchy is one way to prove that no translation can leave
+   the whole tiling unchanged.</li>
+<li><strong>Incommensurate geometry:</strong> irrational scale factors or distances often
+   appear in these constructions. They can support an aperiodicity proof,
+   but an irrational length ratio by itself is not enough. It must be tied
+   to the actual matching rules or hierarchy.</li>
+</ol>
+<p>Some proofs also use <strong>cut-and-project</strong> ideas: a non-repeating pattern in a
+plane can be understood as a carefully selected “shadow” or slice of a
+higher-dimensional periodic structure. That is a mathematical construction,
+not evidence that every aperiodic tiling is a projection.</p>
+<div class="admonition info">
+<p class="admonition-title">How Local Rules Control an Infinite Floor (In Plain English)</p>
+<p>How can a "dumb" geometric tile on one side of a room prevent a pattern from repeating a kilometer away?</p>
+<ul>
+<li><strong>The Jigsaw Rule (Matching Rules):</strong> Think of matching rules like jigsaw tabs or colored domino ends. If a blue tab must plug into a blue slot, placing one tile immediately restricts which tiles can sit next to it.</li>
+<li><strong>The Russian Nesting Doll Effect (Substitution &amp; Inflation Hierarchy):</strong> When matching rules are designed cleverly, small groups of tiles are forced to lock together into a larger cluster—called a <strong>supertile</strong> or <strong>metatile</strong>—that behaves like a scaled-up version of the original tiles. Those Level-1 supertiles are forced to form Level-2 supertiles, which form Level-3 supertiles, growing infinitely large.</li>
+<li><em>Why does this forbid repetition?</em> Suppose someone claims the floor repeats every <span class="arithmatex">\(10\)</span> meters. You simply zoom out to a supertile level where each supertile is <span class="arithmatex">\(100\)</span> meters wide. Sliding the floor by <span class="arithmatex">\(10\)</span> meters knocks every <span class="arithmatex">\(100\)</span>-meter supertile out of alignment with itself! Because supertiles exist at arbitrarily large scales, <strong>no slide distance <span class="arithmatex">\(d &gt; 0\)</span> can ever work</strong>.</li>
+<li><strong>Incommensurable Ratios (Irrational Numbers):</strong> Periodic grids rely on whole-number ratios (<span class="arithmatex">\(1:1\)</span>, <span class="arithmatex">\(1:2\)</span>, <span class="arithmatex">\(2:3\)</span>). Many aperiodic systems lock their matching rules or hierarchies to <strong>irrational numbers</strong>—such as the Golden Ratio <span class="arithmatex">\(\phi = \frac{1+\sqrt{5}}{2} \approx 1.618\)</span>, the Silver Ratio <span class="arithmatex">\(1+\sqrt{2} \approx 2.414\)</span>, or <span class="arithmatex">\(\sqrt{3} \approx 1.732\)</span>—which can never be written as a fraction of whole numbers.</li>
+<li><strong>The High-Dimensional Shadow (Cut-and-Project):</strong> Imagine shining a light through a regular 3D crystal lattice onto a flat 2D wall tilted at an irrational slope. Even though the 3D grid is completely periodic, the selected slice projected onto the 2D wall forms an ordered pattern that never repeats.</li>
+</ul>
+</div>
+<hr />
+<h2 id="from-colored-edges-to-penrose-patterns">From colored edges to Penrose patterns</h2>
+<h3 id="wang-tiles-matching-colors-forbidding-repetition">Wang tiles: matching colors, forbidding repetition</h3>
+<p>In 1961, mathematician Hao Wang proposed studying square tiles whose edges
+carry colors. Tiles may slide but not rotate or flip, and neighboring edges
+must match. These <strong>Wang tiles</strong> turn a geometric puzzle into a system of
+local rules.</p>
+<p><img alt="A set of 13 Wang tiles with colored edges." src="../../../../../assets/images/aperiodic-tilings/wang-tiles.svg" /></p>
+<p><em>A 13-tile aperiodic Wang set. Image: Anomie, public domain; <a href="https://commons.wikimedia.org/wiki/File:Wang_tiles.svg">file page</a>.</em></p>
+<p>Wang conjectured that any tile set able to cover the plane could also do so
+periodically. In 1966, his student Robert Berger disproved the conjecture with
+a set of <span class="arithmatex">\(20,426\)</span> Wang tiles. Later constructions made the sets dramatically
+smaller. In 2015, Emmanuel Jeandel and Michael Rao proved that <strong>11 tiles and
+4 edge colors are minimal</strong>: no aperiodic Wang set can use fewer than <span class="arithmatex">\(11\)</span>
+tiles or fewer than <span class="arithmatex">\(4\)</span> colors.</p>
+<p><img alt="A set of 16 Wang tiles." src="../../../../../assets/images/aperiodic-tilings/wang-16-tiles.svg" /></p>
+<p><em>An aperiodic set of 16 Wang tiles. Image: T. Yamaguchi, public domain; <a href="https://commons.wikimedia.org/wiki/File:Wang_16_tiles.svg">file page</a>.</em></p>
+<p>Wang tiles also connect tiling to computation. Matching rules can encode
+steps in a calculation, and aperiodic sets helped establish that there is no
+general algorithm that decides whether an arbitrary Wang-tile set can tile
+the plane.</p>
+<p>The “domino problem” asks whether an algorithm can always decide if a given
+finite set of Wang tiles can cover the infinite plane. Berger’s construction
+helped show that no such general decision procedure exists. This is related
+to undecidability in computation, but it is better not to say that the
+tiling problem is simply identical to the Halting Problem: the two problems
+are connected through reductions in computability theory.</p>
+<p>The Jeandel–Rao result is a precise minimum for <strong>Wang tiles</strong>: among
+aperiodic sets of Wang squares, <span class="arithmatex">\(11\)</span> tiles and <span class="arithmatex">\(4\)</span> colors are optimal under
+their definition. It does not say that <span class="arithmatex">\(11\)</span> is the minimum number of arbitrary
+shapes needed for every kind of aperiodic tiling.</p>
+<details class="example">
+<summary>Beginner Breakdown: How Do Square Wang Tiles Prevent Repetition?</summary>
+<p>At first glance, squares seem like the easiest shape in the world to repeat. Here is why Wang tiles cannot:</p>
+<ol>
+<li><strong>Rule 1 (No Rotating or Flipping):</strong> Every Wang tile is a unit square divided into four colored edge zones (Top, Bottom, Left, Right). You may <strong>only slide</strong> them; rotating or flipping a square is strictly forbidden.</li>
+<li><strong>Rule 2 (Domino Color Matching):</strong> Wherever two tiles touch, their shared edge must have the <strong>exact same color</strong> (e.g., a red right edge must touch a red left edge).</li>
+<li><strong>Computing with Rows of Colors:</strong> Because the bottom colors of one horizontal row restrict which top colors can sit beneath them in the next row, each row of tiles can act like a step in a calculation (where vertical colors represent values and horizontal colors act like "carry" digits).</li>
+<li><strong>Why Repeating Fails:</strong> In Berger's (<span class="arithmatex">\(20,426\)</span> tiles) and Ammann's (<span class="arithmatex">\(16\)</span> tiles) sets, the colors force squares to group into an infinite substitution hierarchy of larger and larger square blocks. In Karel Culik II's <span class="arithmatex">\(13\)</span>-tile set (shown above) and Jeandel and Rao's minimal <span class="arithmatex">\(11\)</span>-tile set, the rows simulate a transducer that multiplies numbers across rows in a way that can never cycle back to its starting state.</li>
+</ol>
+</details>
+<hr />
+<h3 id="robinsons-nested-patterns">Robinson’s nested patterns</h3>
+<p>Raphael Robinson found a small aperiodic set of six square-based tiles whose
+markings force larger and larger structured patches. The resulting hierarchy
+is a useful way to understand how local constraints can rule out a global
+repeat.</p>
+<p><img alt="The six Robinson tiles with matching markings." src="../../../../../assets/images/aperiodic-tilings/robinson-tiles.svg" /></p>
+<p><em>Robinson’s six tiles. Image: Archibald, public domain; <a href="https://commons.wikimedia.org/wiki/File:Robinson_tiles.svg">file page</a>.</em></p>
+<p>Their markings force a hierarchy of larger square-like arrangements,
+sometimes visualized as nested picture frames. One should not infer the
+precise sequence of every intermediate frame from this illustration alone:
+the proof is the full set of tile rules, not just the appearance of a
+single patch.</p>
+<details class="example">
+<summary>Beginner Breakdown: How Robinson's 6 Tiles Work</summary>
+<p>In 1971, Raphael Robinson dramatically simplified Berger's <span class="arithmatex">\(20,426\)</span> Wang tiles down to just <strong>6 square-based shapes</strong> (where rotations and reflections <em>are</em> allowed):</p>
+<ul>
+<li><strong>Jigsaw Corners &amp; Off-Center Notches:</strong> Notice the bumpy corners and off-center edge notches on the six shapes in the diagram above, along with their red and blue stripe markings.</li>
+<li><strong>Building Infinite Picture Frames:</strong> The first tile on the left (with four outward corner bumps) cannot sit next to another copy of itself. Instead, those bumps force copies of that tile to sit at every <em>other</em> grid spot, forming the four corners of a <span class="arithmatex">\(3 \times 3\)</span> square frame.</li>
+<li><strong>Nesting Forever:</strong> Once the arm pieces connect those four corners, the center of the <span class="arithmatex">\(3 \times 3\)</span> square is forced to hold a corner marking for an even larger <span class="arithmatex">\(7 \times 7\)</span> square frame, which in turn forms one corner of a <span class="arithmatex">\(15 \times 15\)</span> frame, then <span class="arithmatex">\(31 \times 31\)</span>, scaling up as <span class="arithmatex">\(2^n - 1\)</span> forever. Because every square frame is part of a frame more than twice as wide, no finite translation can leave all frames unchanged.</li>
+</ul>
+</details>
+<hr />
+<h3 id="penrose-two-shapes-five-fold-order">Penrose: two shapes, five-fold order</h3>
+<p>Roger Penrose’s tilings brought the subject to a much wider audience. His
+P1 system uses several tile shapes; later P2 and P3 systems reduce the set to
+two shapes each: a <strong>kite and dart</strong>, or a <strong>thick and thin rhombus</strong>.
+Appropriate matching rules—shown as arcs, colors, or edge markings—are
+essential. Without them, the same outlines can often be assembled into
+periodic patterns. For a computational companion, see
+<a href="https://www.sitmo.com/a-tiling-that-never-repeats/">“A Tiling That Never Repeats” on Sitmo</a>.
+It walks through a related Girih-inspired construction—the Shesh Band and
+Sormeh Dan shapes—and uses Python to build the pattern through geometric
+transforms and repeated substitutions.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Images</label><label for="__tabbed_1_2">Code</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>P1: pentagons, stars, and other shapes</strong></p>
+<p><img alt="A patch of Penrose's P1 tiling." src="../../../../../assets/images/aperiodic-tilings/penrose-p1.svg" /></p>
+<p><em>Image: Inductiveload, public domain; <a href="https://commons.wikimedia.org/wiki/File:Penrose_Tiling_(P1).svg">file page</a>.</em></p>
+<p><strong>P2: kite and dart</strong></p>
+<p><img alt="The Penrose kite and dart tiles with matching markings." src="../../../../../assets/images/aperiodic-tilings/kite-dart.svg" /></p>
+<p><em>Image: Geometry guy, CC BY-SA 3.0; <a href="https://commons.wikimedia.org/wiki/File:Kite_Dart.svg">file page</a>.</em></p>
+<p><strong>P3: thick and thin rhombi</strong></p>
+<p><img alt="A patch of Penrose rhombus tiling." src="../../../../../assets/images/aperiodic-tilings/penrose-rhombi.svg" /></p>
+<p><em>Image: Inductiveload, public domain; <a href="https://commons.wikimedia.org/wiki/File:Penrose_Tiling_(Rhombi).svg">file page</a>.</em></p>
+<p><strong>A Girih-inspired Penrose-style tiling</strong></p>
+<p><img alt="Featured image from Sitmo's article A Tiling That Never Repeats." src="../../../../../assets/images/aperiodic-tilings/sitmo-penrose-feature.png" /></p>
+<p><em>Image: Sitmo, copied from the <a href="https://www.sitmo.com/a-tiling-that-never-repeats/">original article</a>.</em></p>
+</div>
+<div class="tabbed-block">
+<p>The Sitmo article includes its full Python implementation and figures.
+Its code defines tile vertices, combines rotation/scale/translation
+transforms, and recursively applies substitution rules. The example
+below is an original, compact illustration of the transform step; it is
+not a complete Penrose or Girih tiling generator.</p>
+<div class="highlight"><pre><span></span><code>  <span class="c1">#!/usr/bin/env python3</span>
+<span class="w">  </span><span class="sd">"""</span>
+<span class="sd">  Verified End-to-End Aperiodic Penrose Tiling Generator (P3 Rhombi &amp; P2 Kite/Dart)</span>
+<span class="sd">  Includes automated geometric verification of side ratios, angles, and area conservation.</span>
+<span class="sd">  """</span>
+
+  <span class="kn">import</span><span class="w"> </span><span class="nn">cmath</span>
+  <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+  <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+
+  <span class="c1"># (triangle_type, vertex_A, vertex_B, vertex_C)</span>
+  <span class="c1"># Invariants maintained across all generations:</span>
+  <span class="c1">#   type 0 (Acute, 36°-72°-72°): 36° apex at A; equal legs AB = AC = L; short base BC = L / PHI</span>
+  <span class="c1">#   type 1 (Obtuse, 36°-108°-36°): 108° apex at B; equal legs BA = BC; long base AC = leg * PHI</span>
+  <span class="n">Triangle</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">complex</span><span class="p">,</span> <span class="nb">complex</span><span class="p">,</span> <span class="nb">complex</span><span class="p">]</span>
+
+  <span class="n">PHI</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">5.0</span><span class="p">))</span> <span class="o">/</span> <span class="mf">2.0</span>  <span class="c1"># Golden ratio (~1.6180339887)</span>
+
+
+  <span class="k">def</span><span class="w"> </span><span class="nf">create_initial_wheel</span><span class="p">(</span><span class="n">radius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Triangle</span><span class="p">]:</span>
+<span class="w">      </span><span class="sd">"""</span>
+<span class="sd">      Creates a 5-fold symmetric wheel (decagon) of 10 acute Robinson triangles</span>
+<span class="sd">      around the origin.</span>
+<span class="sd">      """</span>
+      <span class="n">triangles</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Triangle</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+          <span class="n">b</span> <span class="o">=</span> <span class="n">cmath</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">)</span>
+          <span class="n">c</span> <span class="o">=</span> <span class="n">cmath</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">)</span>
+          <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+              <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="p">,</span> <span class="n">b</span>
+          <span class="n">triangles</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="n">j</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
+      <span class="k">return</span> <span class="n">triangles</span>
+
+
+  <span class="k">def</span><span class="w"> </span><span class="nf">subdivide_p3_rhombi</span><span class="p">(</span><span class="n">triangles</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Triangle</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Triangle</span><span class="p">]:</span>
+<span class="w">      </span><span class="sd">"""</span>
+<span class="sd">      One generation of Penrose P3 (Thick &amp; Thin Rhombus) deflation.</span>
+<span class="sd">      - Acute (0) -&gt; 1 Acute (0) + 1 Obtuse (1)</span>
+<span class="sd">      - Obtuse (1) -&gt; 2 Obtuse (1) + 1 Acute (0)</span>
+<span class="sd">      """</span>
+      <span class="n">next_gen</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Triangle</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="k">for</span> <span class="n">color</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">triangles</span><span class="p">:</span>
+          <span class="k">if</span> <span class="n">color</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+              <span class="n">p</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">PHI</span>
+              <span class="n">next_gen</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+              <span class="n">next_gen</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="n">q</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">PHI</span>
+              <span class="n">r</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">PHI</span>
+              <span class="n">next_gen</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+              <span class="n">next_gen</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
+              <span class="n">next_gen</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+      <span class="k">return</span> <span class="n">next_gen</span>
+
+
+  <span class="k">def</span><span class="w"> </span><span class="nf">subdivide_p2_kite_dart</span><span class="p">(</span><span class="n">triangles</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Triangle</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Triangle</span><span class="p">]:</span>
+<span class="w">      </span><span class="sd">"""</span>
+<span class="sd">      One generation of Penrose P2 (Kite &amp; Dart) deflation.</span>
+<span class="sd">      - Half-Kite (0) -&gt; 2 Half-Kites (0) + 1 Half-Dart (1)</span>
+<span class="sd">      - Half-Dart (1) -&gt; 1 Half-Kite (0) + 1 Half-Dart (1)</span>
+<span class="sd">      """</span>
+      <span class="n">next_gen</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Triangle</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="k">for</span> <span class="n">color</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">triangles</span><span class="p">:</span>
+          <span class="k">if</span> <span class="n">color</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+              <span class="n">q</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">PHI</span>
+              <span class="n">r</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="n">PHI</span>
+              <span class="n">next_gen</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+              <span class="n">next_gen</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">))</span>
+              <span class="n">next_gen</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="n">p</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="n">PHI</span>
+              <span class="n">next_gen</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+              <span class="n">next_gen</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
+      <span class="k">return</span> <span class="n">next_gen</span>
+
+
+  <span class="k">def</span><span class="w"> </span><span class="nf">triangle_area</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">complex</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">complex</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="nb">complex</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">      </span><span class="sd">"""Computes the unsigned area of triangle ABC."""</span>
+      <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">((</span><span class="n">b</span><span class="o">.</span><span class="n">real</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="n">real</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">imag</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">real</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="n">real</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">imag</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="n">imag</span><span class="p">))</span>
+
+
+  <span class="k">def</span><span class="w"> </span><span class="nf">verify_geometry</span><span class="p">(</span><span class="n">triangles</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Triangle</span><span class="p">],</span> <span class="n">expected_area</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">tol</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-9</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">      </span><span class="sd">"""</span>
+<span class="sd">      Mathematically verifies every triangle in the tiling:</span>
+<span class="sd">      1. Type 0 has equal legs AB == AC and ratio AB / BC == PHI (36°-72°-72°).</span>
+<span class="sd">      2. Type 1 has equal legs BA == BC and ratio AC / BA == PHI (36°-108°-36°).</span>
+<span class="sd">      3. Sum of all triangle areas equals the initial wheel area (no gaps or overlaps).</span>
+<span class="sd">      """</span>
+      <span class="n">total_area</span> <span class="o">=</span> <span class="mf">0.0</span>
+      <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">triangles</span><span class="p">):</span>
+          <span class="n">ab</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span>
+          <span class="n">ac</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span>
+          <span class="n">bc</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>
+          <span class="n">total_area</span> <span class="o">+=</span> <span class="n">triangle_area</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+
+          <span class="k">if</span> <span class="n">color</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+              <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">ab</span><span class="p">,</span> <span class="n">ac</span><span class="p">,</span> <span class="n">rel_tol</span><span class="o">=</span><span class="n">tol</span><span class="p">),</span> <span class="p">(</span>
+                  <span class="sa">f</span><span class="s2">"Triangle </span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s2"> (type 0) legs unequal: AB=</span><span class="si">{</span><span class="n">ab</span><span class="si">}</span><span class="s2">, AC=</span><span class="si">{</span><span class="n">ac</span><span class="si">}</span><span class="s2">"</span>
+              <span class="p">)</span>
+              <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">ab</span> <span class="o">/</span> <span class="n">bc</span><span class="p">,</span> <span class="n">PHI</span><span class="p">,</span> <span class="n">rel_tol</span><span class="o">=</span><span class="n">tol</span><span class="p">),</span> <span class="p">(</span>
+                  <span class="sa">f</span><span class="s2">"Triangle </span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s2"> (type 0) ratio AB/BC=</span><span class="si">{</span><span class="n">ab</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">bc</span><span class="si">}</span><span class="s2"> != PHI (</span><span class="si">{</span><span class="n">PHI</span><span class="si">}</span><span class="s2">)"</span>
+              <span class="p">)</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">ab</span><span class="p">,</span> <span class="n">bc</span><span class="p">,</span> <span class="n">rel_tol</span><span class="o">=</span><span class="n">tol</span><span class="p">),</span> <span class="p">(</span>
+                  <span class="sa">f</span><span class="s2">"Triangle </span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s2"> (type 1) legs unequal: BA=</span><span class="si">{</span><span class="n">ab</span><span class="si">}</span><span class="s2">, BC=</span><span class="si">{</span><span class="n">bc</span><span class="si">}</span><span class="s2">"</span>
+              <span class="p">)</span>
+              <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">ac</span> <span class="o">/</span> <span class="n">ab</span><span class="p">,</span> <span class="n">PHI</span><span class="p">,</span> <span class="n">rel_tol</span><span class="o">=</span><span class="n">tol</span><span class="p">),</span> <span class="p">(</span>
+                  <span class="sa">f</span><span class="s2">"Triangle </span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s2"> (type 1) ratio AC/BA=</span><span class="si">{</span><span class="n">ac</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">ab</span><span class="si">}</span><span class="s2"> != PHI (</span><span class="si">{</span><span class="n">PHI</span><span class="si">}</span><span class="s2">)"</span>
+              <span class="p">)</span>
+
+      <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">total_area</span><span class="p">,</span> <span class="n">expected_area</span><span class="p">,</span> <span class="n">rel_tol</span><span class="o">=</span><span class="n">tol</span><span class="p">),</span> <span class="p">(</span>
+          <span class="sa">f</span><span class="s2">"Area mismatch: total=</span><span class="si">{</span><span class="n">total_area</span><span class="si">}</span><span class="s2">, expected=</span><span class="si">{</span><span class="n">expected_area</span><span class="si">}</span><span class="s2">"</span>
+      <span class="p">)</span>
+
+
+  <span class="k">def</span><span class="w"> </span><span class="nf">get_visible_edges</span><span class="p">(</span><span class="n">color</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">complex</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">complex</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="nb">complex</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">complex</span><span class="p">,</span> <span class="nb">complex</span><span class="p">,</span> <span class="nb">complex</span><span class="p">]:</span>
+<span class="w">      </span><span class="sd">"""</span>
+<span class="sd">      Returns the 3-point polyline (P1 -&gt; P2 -&gt; P3) representing the two outer</span>
+<span class="sd">      edges of each half-tile, omitting the shared internal diagonal:</span>
+<span class="sd">        - P3 Mode: Type 0 omits BC (draws B-&gt;A-&gt;C); Type 1 omits AC (draws A-&gt;B-&gt;C)</span>
+<span class="sd">        - P2 Mode: Type 0 omits AB (draws A-&gt;C-&gt;B); Type 1 omits BC (draws B-&gt;A-&gt;C)</span>
+<span class="sd">      """</span>
+      <span class="k">if</span> <span class="n">mode</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"P3"</span><span class="p">:</span>
+          <span class="k">return</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="k">if</span> <span class="n">color</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+      <span class="k">else</span><span class="p">:</span>
+          <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">if</span> <span class="n">color</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+
+
+  <span class="k">def</span><span class="w"> </span><span class="nf">export_to_svg</span><span class="p">(</span>
+      <span class="n">triangles</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Triangle</span><span class="p">],</span>
+      <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"P3"</span><span class="p">,</span>
+      <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"penrose_tiling.svg"</span><span class="p">,</span>
+      <span class="n">size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">800</span><span class="p">,</span>
+      <span class="n">color_acute</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"#e07a5f"</span><span class="p">,</span>
+      <span class="n">color_obtuse</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"#3d405b"</span><span class="p">,</span>
+      <span class="n">stroke_color</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"#f4f1de"</span><span class="p">,</span>
+      <span class="n">stroke_width</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.003</span><span class="p">,</span>
+  <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">      </span><span class="sd">"""Exports the verified tiling to a standalone SVG file."""</span>
+      <span class="n">svg_lines</span> <span class="o">=</span> <span class="p">[</span>
+          <span class="sa">f</span><span class="s1">'&lt;svg xmlns="http://www.w3.org/2000/svg" '</span>
+          <span class="sa">f</span><span class="s1">'viewBox="-1.05 -1.05 2.1 2.1" width="</span><span class="si">{</span><span class="n">size</span><span class="si">}</span><span class="s1">" height="</span><span class="si">{</span><span class="n">size</span><span class="si">}</span><span class="s1">"&gt;'</span><span class="p">,</span>
+          <span class="sa">f</span><span class="s1">'  &lt;rect x="-1.05" y="-1.05" width="2.1" height="2.1" fill="</span><span class="si">{</span><span class="n">stroke_color</span><span class="si">}</span><span class="s1">"/&gt;'</span><span class="p">,</span>
+          <span class="s1">'  &lt;g stroke-linejoin="round" stroke-linecap="round"&gt;'</span><span class="p">,</span>
+      <span class="p">]</span>
+
+      <span class="c1"># 1. Fill half-tile interiors (with tiny matching stroke to prevent anti-aliasing hairlines)</span>
+      <span class="k">for</span> <span class="n">color</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">triangles</span><span class="p">:</span>
+          <span class="n">fill</span> <span class="o">=</span> <span class="n">color_acute</span> <span class="k">if</span> <span class="n">color</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">color_obtuse</span>
+          <span class="n">pts</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">real</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">imag</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">b</span><span class="o">.</span><span class="n">real</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">b</span><span class="o">.</span><span class="n">imag</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">c</span><span class="o">.</span><span class="n">real</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">c</span><span class="o">.</span><span class="n">imag</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">"</span>
+          <span class="n">svg_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+              <span class="sa">f</span><span class="s1">'    &lt;polygon points="</span><span class="si">{</span><span class="n">pts</span><span class="si">}</span><span class="s1">" fill="</span><span class="si">{</span><span class="n">fill</span><span class="si">}</span><span class="s1">" stroke="</span><span class="si">{</span><span class="n">fill</span><span class="si">}</span><span class="s1">" stroke-width="0.0008"/&gt;'</span>
+          <span class="p">)</span>
+
+      <span class="c1"># 2. Stroke only the true tile boundaries (omitting shared internal diagonals)</span>
+      <span class="k">for</span> <span class="n">color</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">triangles</span><span class="p">:</span>
+          <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span> <span class="o">=</span> <span class="n">get_visible_edges</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+          <span class="n">path</span> <span class="o">=</span> <span class="p">(</span>
+              <span class="sa">f</span><span class="s2">"M </span><span class="si">{</span><span class="n">p1</span><span class="o">.</span><span class="n">real</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">p1</span><span class="o">.</span><span class="n">imag</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> "</span>
+              <span class="sa">f</span><span class="s2">"L </span><span class="si">{</span><span class="n">p2</span><span class="o">.</span><span class="n">real</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">p2</span><span class="o">.</span><span class="n">imag</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> "</span>
+              <span class="sa">f</span><span class="s2">"L </span><span class="si">{</span><span class="n">p3</span><span class="o">.</span><span class="n">real</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">p3</span><span class="o">.</span><span class="n">imag</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">"</span>
+          <span class="p">)</span>
+          <span class="n">svg_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+              <span class="sa">f</span><span class="s1">'    &lt;path d="</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s1">" fill="none" stroke="</span><span class="si">{</span><span class="n">stroke_color</span><span class="si">}</span><span class="s1">" stroke-width="</span><span class="si">{</span><span class="n">stroke_width</span><span class="si">}</span><span class="s1">"/&gt;'</span>
+          <span class="p">)</span>
+
+      <span class="n">svg_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"  &lt;/g&gt;"</span><span class="p">)</span>
+      <span class="n">svg_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"&lt;/svg&gt;"</span><span class="p">)</span>
+
+      <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+          <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">svg_lines</span><span class="p">))</span>
+      <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[OK] Saved </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">triangles</span><span class="p">)</span><span class="si">}</span><span class="s2"> verified half-tiles (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">triangles</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="si">}</span><span class="s2"> full tiles) to '</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
+
+
+  <span class="k">def</span><span class="w"> </span><span class="nf">plot_with_matplotlib</span><span class="p">(</span><span class="n">triangles</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Triangle</span><span class="p">],</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"P3"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">      </span><span class="sd">"""Optional interactive preview using Matplotlib with internal seams hidden."""</span>
+      <span class="k">try</span><span class="p">:</span>
+          <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+          <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">LineCollection</span><span class="p">,</span> <span class="n">PolyCollection</span>
+      <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+          <span class="nb">print</span><span class="p">(</span><span class="s2">"Matplotlib not installed; skipping interactive window (SVG was generated)."</span><span class="p">)</span>
+          <span class="k">return</span>
+
+      <span class="n">verts</span> <span class="o">=</span> <span class="p">[[(</span><span class="n">a</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">imag</span><span class="p">),</span> <span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">imag</span><span class="p">),</span> <span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">imag</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">triangles</span><span class="p">]</span>
+      <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"#e07a5f"</span> <span class="k">if</span> <span class="n">color</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">"#3d405b"</span> <span class="k">for</span> <span class="n">color</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">triangles</span><span class="p">]</span>
+
+      <span class="n">edge_lines</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="k">for</span> <span class="n">color</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">triangles</span><span class="p">:</span>
+          <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span> <span class="o">=</span> <span class="n">get_visible_edges</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+          <span class="n">edge_lines</span><span class="o">.</span><span class="n">append</span><span class="p">([(</span><span class="n">p1</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">p1</span><span class="o">.</span><span class="n">imag</span><span class="p">),</span> <span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">p2</span><span class="o">.</span><span class="n">imag</span><span class="p">),</span> <span class="p">(</span><span class="n">p3</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">p3</span><span class="o">.</span><span class="n">imag</span><span class="p">)])</span>
+
+      <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+      <span class="n">poly_coll</span> <span class="o">=</span> <span class="n">PolyCollection</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">facecolors</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+      <span class="n">line_coll</span> <span class="o">=</span> <span class="n">LineCollection</span><span class="p">(</span><span class="n">edge_lines</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">"#f4f1de"</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+
+      <span class="n">ax</span><span class="o">.</span><span class="n">add_collection</span><span class="p">(</span><span class="n">poly_coll</span><span class="p">)</span>
+      <span class="n">ax</span><span class="o">.</span><span class="n">add_collection</span><span class="p">(</span><span class="n">line_coll</span><span class="p">)</span>
+      <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.05</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">)</span>
+      <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.05</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">)</span>
+      <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">"equal"</span><span class="p">)</span>
+      <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"off"</span><span class="p">)</span>
+      <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+      <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+  <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+      <span class="n">GENERATIONS</span> <span class="o">=</span> <span class="mi">5</span>
+
+      <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"P3"</span><span class="p">,</span> <span class="s2">"P2"</span><span class="p">):</span>
+          <span class="n">tiles</span> <span class="o">=</span> <span class="n">create_initial_wheel</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+          <span class="n">initial_area</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">triangle_area</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">tiles</span><span class="p">)</span>
+
+          <span class="k">for</span> <span class="n">gen</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">GENERATIONS</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+              <span class="n">tiles</span> <span class="o">=</span> <span class="n">subdivide_p3_rhombi</span><span class="p">(</span><span class="n">tiles</span><span class="p">)</span> <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">"P3"</span> <span class="k">else</span> <span class="n">subdivide_p2_kite_dart</span><span class="p">(</span><span class="n">tiles</span><span class="p">)</span>
+              <span class="n">verify_geometry</span><span class="p">(</span><span class="n">tiles</span><span class="p">,</span> <span class="n">expected_area</span><span class="o">=</span><span class="n">initial_area</span><span class="p">)</span>
+
+          <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[VERIFIED] Mode </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2"> passed all geometric checks across </span><span class="si">{</span><span class="n">GENERATIONS</span><span class="si">}</span><span class="s2"> generations."</span><span class="p">)</span>
+          <span class="n">export_to_svg</span><span class="p">(</span><span class="n">tiles</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="sa">f</span><span class="s2">"penrose_</span><span class="si">{</span><span class="n">mode</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">_gen</span><span class="si">{</span><span class="n">GENERATIONS</span><span class="si">}</span><span class="s2">.svg"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>The tiles can be grouped into larger versions of themselves, then grouped
+again, in an <strong>inflation hierarchy</strong>. This nested structure is one route to
+proving that the pattern cannot have a translational period. An irrational
+number such as the golden ratio often appears in the geometry, but an
+irrational length by itself does <strong>not</strong> prove a tiling is aperiodic; the
+matching and hierarchy arguments do the real work.</p>
+<p>The golden ratio is</p>
+<div class="arithmatex">\[\phi = \frac{1+\sqrt{5}}{2} \approx 1.618.\]</div>
+<p>In a Penrose substitution, the inflation factor is <span class="arithmatex">\(\phi\)</span>: a larger
+supertile can be decomposed into smaller tiles according to a fixed rule.
+Repeated deflation and inflation produce the same kinds of shapes at
+different scales. Matching rules can be drawn as colored arcs or encoded
+directly as edge notches. A periodic tiling made from unmarked kite and dart
+outlines would not be the Penrose construction.</p>
+<p><img alt="Diagrams of triangle decompositions used to explain Penrose tilings." src="../../../../../assets/images/aperiodic-tilings/robinson-triangle-decompositions.svg" /></p>
+<p><em>A diagram of triangle decompositions. Image: Geometry guy, CC BY-SA 3.0; <a href="https://commons.wikimedia.org/wiki/File:Robinson_triangle_decompositions.svg">file page</a>.</em></p>
+<details class="example">
+<summary>Beginner Breakdown: How Penrose's P1, P2, and P3 Tilings Work</summary>
+<p>In the 1970s, physicist Roger Penrose wondered how to build a tiling around <span class="arithmatex">\(5\)</span>-fold pentagonal geometry (<span class="arithmatex">\(72^\circ\)</span> and <span class="arithmatex">\(36^\circ\)</span> angles):</p>
+<ul>
+<li><strong>Penrose P1 (Pentagons + Gap-Fillers):</strong> Since three regular pentagons (<span class="arithmatex">\(108^\circ\)</span> corners) leave a <span class="arithmatex">\(36^\circ\)</span> gap, Penrose introduced five-pointed stars, "boats," and thin diamonds (a set of <span class="arithmatex">\(6\)</span> prototiles once edge matching rules are included) that neatly plug every <span class="arithmatex">\(36^\circ\)</span> gap while forcing pentagons to nest inside larger pentagons.</li>
+<li><strong>Penrose P2 (Kite and Dart — Down to 2 Shapes!):</strong> Look at the <strong>P2: kite and dart</strong> tab above. If you take a <span class="arithmatex">\(72^\circ/108^\circ\)</span> diamond (rhombus) and slice its long diagonal at the Golden Ratio (<span class="arithmatex">\(\phi \approx 1.618\)</span>), you get a convex <strong>Kite</strong> (three <span class="arithmatex">\(72^\circ\)</span> angles and one <span class="arithmatex">\(144^\circ\)</span> angle) and a concave <strong>Dart</strong> (two <span class="arithmatex">\(36^\circ\)</span> wingtips, a <span class="arithmatex">\(72^\circ\)</span> nose, and an inward <span class="arithmatex">\(216^\circ\)</span> tail).</li>
+<li><em>Why don't they just re-form the diamond and repeat?</em> Look at the <strong>red and green circular arcs</strong> drawn on the Kite and Dart. The rule states that touching edges must connect arcs of the <strong>same color</strong>. If you try to tuck a Kite into the tail of a Dart to make a simple repeating diamond, the colored arcs clash! Instead, the arcs force Kites and Darts to group into <strong>larger Kites and Darts</strong> scaled up by <span class="arithmatex">\(\phi\)</span> at every level.</li>
+<li><strong>Penrose P3 (Thick and Thin Rhombi):</strong> Uses just two diamond shapes—a <strong>Thick Rhombus</strong> (<span class="arithmatex">\(72^\circ/108^\circ\)</span>) and a <strong>Thin Rhombus</strong> (<span class="arithmatex">\(36^\circ/144^\circ\)</span>)—decorated with matching arcs or edge notches that enforce the same <span class="arithmatex">\(\phi\)</span> substitution hierarchy. In any infinite P2 or P3 Penrose tiling, the ratio of thick to thin rhombi (or kites to darts) is exactly <span class="arithmatex">\(\phi = \frac{1+\sqrt{5}}{2}\)</span>, which cannot be achieved by any finite repeating unit cell.</li>
+</ul>
+</details>
+<hr />
+<h3 id="beyond-five-fold-symmetry-ammannbeenker-and-pinwheel">Beyond five-fold symmetry: Ammann–Beenker and Pinwheel</h3>
+<p>Other constructions explore different symmetries and behaviors. The
+Ammann–Beenker tiling combines squares and rhombi in an eight-fold pattern,
+while the <strong>pinwheel tiling</strong> uses copies of a right triangle with side lengths
+<span class="arithmatex">\(1\)</span>, <span class="arithmatex">\(2\)</span>, and <span class="arithmatex">\(\sqrt{5}\)</span>. Its substitution rule produces infinitely many tile
+orientations—even though the unmarked triangle can also be arranged
+periodically.</p>
+<p>The Ammann–Beenker substitution has inflation factor <span class="arithmatex">\(1+\sqrt{2}\)</span>, also
+called the silver mean. Its two shapes are a square and a <span class="arithmatex">\(45^\circ/135^\circ\)</span>
+rhombus. <strong>Ammann bars</strong> are decorations that continue as straight lines
+through a correctly matched tiling; related decorations can encode local
+matching rules. The bare square and rhombus outlines, without the rules or
+decoration, do not by themselves forbid periodic arrangements.</p>
+<p>In the pinwheel substitution, each right triangle of side lengths
+<span class="arithmatex">\(1, 2, \sqrt{5}\)</span> is replaced by five smaller, similar copies. The rule
+rotates some descendants by an angle related to
+<span class="arithmatex">\(\arctan(1/2)\)</span>. Repeating the substitution yields infinitely many
+orientations, a distinctive feature of the pinwheel tiling. The triangle
+outline alone can also make periodic tilings, so the substitution rule is
+important when discussing this example.</p>
+<p><img alt="A patch of the Ammann–Beenker tiling." src="../../../../../assets/images/aperiodic-tilings/ammann-beenker.svg" /></p>
+<p><em>Image: Claudio Rocchini, CC BY 3.0; <a href="https://commons.wikimedia.org/wiki/File:Ammann%E2%80%93Beenker_tiling.svg">file page</a>.</em></p>
+<p><img alt="A patch of the pinwheel tiling." src="../../../../../assets/images/aperiodic-tilings/pinwheel.jpg" /></p>
+<p><em>Image: Levochik, CC BY-SA 3.0; <a href="https://commons.wikimedia.org/wiki/File:Pinwheel_3.jpg">file page</a>.</em></p>
+<details class="example">
+<summary>Beginner Breakdown: Ammann Bars and Pinwheel Rotations</summary>
+<ul>
+<li><strong>Ammann–Beenker Tiling (8-Fold Octagonal Order):</strong> Plain squares and <span class="arithmatex">\(45^\circ\)</span> rhombi can trivially tile a floor in repeating strips. To prevent that, amateur mathematician Robert Ammann and F. P. M. Beenker added straight line segments (<strong>Ammann bars</strong>) across the faces of the two tiles. When tiles meet edge-to-edge, those segments must connect into unbroken straight lines extending across the entire infinite plane, forcing an octagonal substitution hierarchy with inflation factor <span class="arithmatex">\(1 + \sqrt{2}\)</span>.</li>
+<li><strong>Pinwheel Tiling (Infinitely Many Compass Directions):</strong> In Penrose or Ammann–Beenker tilings, every tile points in one of a finite number of compass directions. In 1994, John Conway and Charles Radin studied a right triangle with sides <span class="arithmatex">\(1\)</span>, <span class="arithmatex">\(2\)</span>, and <span class="arithmatex">\(\sqrt{5}\)</span> (since <span class="arithmatex">\(1^2 + 2^2 = (\sqrt{5})^2\)</span>). Each triangle divides into <strong>5 identical smaller copies</strong> of itself, with the interior triangles rotated by <span class="arithmatex">\(\theta = \arctan(1/2) \approx 26.565^\circ\)</span>. Because <span class="arithmatex">\(\arctan(1/2)\)</span> is an irrational multiple of <span class="arithmatex">\(\pi\)</span>, repeating the substitution rotates triangles into <strong>infinitely many distinct orientations</strong> across the plane!</li>
+</ul>
+</details>
+<hr />
+<h3 id="near-misses-on-the-road-to-one-tile-socolartaylor-gummelt-and-3d-tiles">Near-misses on the road to one tile: Socolar–Taylor, Gummelt, and 3D tiles</h3>
+<p>The Socolar–Taylor construction is another important near-miss in the search
+for a single tile: it uses a hexagonal shape with rules that force a
+hierarchy, but versions of the construction rely on non-local matching rules
+or a disconnected tile. That distinction helped sharpen the question that
+the later monotiles would answer.</p>
+<p><img alt="A patch showing the hierarchical Socolar–Taylor tiling." src="../../../../../assets/images/aperiodic-tilings/socolar-taylor.svg" /></p>
+<p><em>Image: Parcly Taxel, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Socolar-Taylor_tiling.svg">file page</a>.</em></p>
+<p>In the decorated construction, matching stripes and flags organize nested
+triangles at successively larger scales. Some of the constraints relate tiles
+that are not immediate edge-neighbors. Converting all such information into
+ordinary edge-to-edge rules can require a disconnected shape. That is why
+the Socolar–Taylor example is a useful milestone, but is not the same kind
+of single connected, unmarked monotile as the Hat.</p>
+<p>Another instructive “almost” example is the <strong>Gummelt decagon</strong>. It can
+produce Penrose-like order when copies are allowed to overlap in prescribed
+ways. Overlapping coverings are interesting, but differ from a conventional
+tiling, where tile interiors do not overlap. A different milestone,
+the <strong>Schmitt–Conway–Danzer tile</strong>, is a single shape in three dimensions;
+its construction involves stacked layers with a screw-like twist. Neither
+example is a single, connected two-dimensional tile covering the plane
+without overlaps.</p>
+<details class="example">
+<summary>Beginner Breakdown: Why These Were 'Near-Misses' for the 2D Einstein Problem</summary>
+<p>Before 2023, researchers came remarkably close to a single aperiodic tile, but each candidate had a geometric catch:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Near-Miss Candidate</th>
+<th style="text-align: left;">How It Works</th>
+<th style="text-align: left;">The Catch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Schmitt–Conway–Danzer Tile (1988)</strong></td>
+<td style="text-align: left;">A single convex 3D polyhedron that fills 3D space without translational repetition.</td>
+<td style="text-align: left;">Only works in <strong>3D space</strong>, using a <strong>screw-like twist</strong> between stacked periodic layers.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gummelt Decagon (1996)</strong></td>
+<td style="text-align: left;">A single decorated 10-sided shape that forces a Penrose pattern in 2D.</td>
+<td style="text-align: left;">Requires adjacent tiles to <strong>overlap</strong> (a <em>covering</em>, not a gapless/overlap-free <em>tiling</em>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Socolar–Taylor Tile (2010)</strong></td>
+<td style="text-align: left;">A single 2D hexagon whose black stripes build an infinite hierarchy of <span class="arithmatex">\(2^n\)</span> nested triangles.</td>
+<td style="text-align: left;">Requires <strong>non-local matching rules</strong> between non-touching tiles—or breaks into <strong>disconnected pieces</strong> in 2D if converted to pure geometry.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<hr />
+<h2 id="the-hat-one-shape-no-periodic-tiling">The Hat: one shape, no periodic tiling</h2>
+<p>In 2023, David Smith, Joseph Samuel Myers, Craig Kaplan, and Chaim
+Goodman-Strauss published a solution to the long-running <strong>einstein
+monotile</strong> problem. Their <strong>Hat</strong> is a single connected polygonal shape—a
+polykite assembled from eight smaller kites—that tiles the plane, but cannot
+produce a periodic tiling.</p>
+<p><img alt="A Hat tiling patch showing the monotile repeated in different orientations." src="../../../../../assets/images/aperiodic-tilings/hat-tiling.svg" /></p>
+<p><em>Image: Gringer, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Aperiodic_monotile_smith_2023.svg">file page</a>.</em></p>
+<p>The proof involves clusters called <strong>metatiles</strong>. The Hat’s geometry forces
+tiles into those clusters, and the clusters themselves obey a hierarchy at
+larger scales. The paper also gives a separate, computer-assisted
+combinatorial proof. This is more precise than saying that the Hat works
+simply because it contains an irrational edge-length ratio: the result rests
+on the forced structure and proofs.</p>
+<p>The Hat’s discovery came from David Smith, a hobbyist who explored tile
+shapes, working with mathematicians Joseph Samuel Myers, Craig Kaplan, and
+Chaim Goodman-Strauss. Their 2023 paper gives two complementary routes: it
+shows how Hat tiles form <strong>metatiles</strong> that themselves follow a substitution
+hierarchy, and separately supplies a computer-assisted combinatorial
+argument. The metatiles are commonly labeled <span class="arithmatex">\(H\)</span>, <span class="arithmatex">\(P\)</span>, <span class="arithmatex">\(T\)</span>, and <span class="arithmatex">\(F\)</span>;
+successive levels grow by a factor related to <span class="arithmatex">\(\phi^2\)</span>. The result is
+stronger than finding one attractive non-repeating arrangement: the proof
+rules out periodic tilings by the shape.</p>
+<p>The same paper studies a continuum of related polygons, often written
+<span class="arithmatex">\(\mathrm{Tile}(a,b)\)</span>, as the underlying kite dimensions vary. It includes
+the Hat and the Turtle and limiting shapes called the Chevron and Comet.
+The paper proves aperiodicity for generic members of this family using a
+geometric incommensurability argument, and also gives the separate
+hierarchical proof for the Hat. This family is a subtle result; it should
+not be reduced to the slogan “<span class="arithmatex">\(\sqrt{3}\)</span> is irrational, therefore the
+Hat is aperiodic.”</p>
+<p>There is an important detail: tilings by the Hat require both its ordinary
+orientation and its mirror image. Reflections are allowed when placing the
+tile. So the Hat solved the one-shape problem, but it did not settle the
+stricter question of whether a single <em>handed</em> shape could do the same.</p>
+<p>That distinction matters for physical tiles with a marked front and back:
+rotating a tile preserves its handedness, while reflecting it changes it.
+In a mathematical tiling, reflections are ordinarily allowed unless the
+problem says otherwise. The Hat’s mirror copies are not a weakness in its
+proof; they are simply part of the transformations used in its tilings.</p>
+<details class="example">
+<summary>Beginner Breakdown: How the 13-Sided 'Hat' Works Step-by-Step</summary>
+<ol>
+<li><strong>Cut From a Simple Hexagonal Kite Grid:</strong> Look at the faint grey hexagons inside the Hat tiling diagram above. If you draw lines from the center of a regular hexagon to the midpoints of its <span class="arithmatex">\(6\)</span> sides, you divide the hexagon into <span class="arithmatex">\(6\)</span> identical four-sided <strong>kites</strong> (each with angles <span class="arithmatex">\(60^\circ, 90^\circ, 120^\circ, 90^\circ\)</span> and edge lengths <span class="arithmatex">\(1\)</span> and <span class="arithmatex">\(\sqrt{3}\)</span>). Gluing <strong><span class="arithmatex">\(8\)</span> of those kites</strong> edge-to-edge produces the <span class="arithmatex">\(13\)</span>-sided <strong>Hat</strong> (<span class="arithmatex">\(\mathrm{Tile}(1, \sqrt{3})\)</span>).</li>
+<li><strong>Zero Markings Needed:</strong> Unlike Wang, Robinson, or Penrose tiles, the Hat has <strong>no painted stripes, colors, or artificial matching rules</strong>. Its <span class="arithmatex">\(13\)</span>-sided outline alone enforces aperiodicity.</li>
+<li><strong>Forced Clustering into <span class="arithmatex">\(H, P, T, F\)</span> Metatiles:</strong> In any valid tiling, every flipped (reflected) Hat (colored dark blue in the figure above) must be surrounded by <span class="arithmatex">\(3\)</span> unflipped Hats (light blue). Across the plane, every Hat is forced into one of four local clusters called <strong>metatiles</strong>:</li>
+<li><strong><span class="arithmatex">\(H\)</span> metatile:</strong> <span class="arithmatex">\(4\)</span> Hats (<span class="arithmatex">\(1\)</span> reflected + <span class="arithmatex">\(3\)</span> unreflected) in a hexagonal cluster.</li>
+<li><strong><span class="arithmatex">\(P\)</span> metatile:</strong> <span class="arithmatex">\(2\)</span> Hats in a parallelogram-like cluster.</li>
+<li><strong><span class="arithmatex">\(T\)</span> metatile:</strong> <span class="arithmatex">\(1\)</span> Hat in a triangular cluster.</li>
+<li><strong><span class="arithmatex">\(F\)</span> metatile:</strong> <span class="arithmatex">\(2\)</span> Hats in a three-pronged wing cluster.</li>
+<li><strong>Infinite Nesting Hierarchy:</strong> Once formed, the <span class="arithmatex">\(H, P, T, F\)</span> metatiles can only fit together by assembling into scaled-up <span class="arithmatex">\(H', P', T', F'\)</span> super-metatiles (inflating in linear scale by <span class="arithmatex">\(\phi^2 = \frac{3+\sqrt{5}}{2} \approx 2.618\)</span> at each step), continuing to infinity.</li>
+<li><strong>The Continuum <span class="arithmatex">\(\mathrm{Tile}(a,b)\)</span>:</strong> By varying the two alternating edge lengths <span class="arithmatex">\((a, b)\)</span> of the polygon:</li>
+<li><span class="arithmatex">\(\mathrm{Tile}(0,1)\)</span> (<strong>Chevron</strong>) and <span class="arithmatex">\(\mathrm{Tile}(1,0)\)</span> (<strong>Comet</strong>) at the extremes tile periodically.</li>
+<li><span class="arithmatex">\(\mathrm{Tile}(1,\sqrt{3})\)</span> is <strong>The Hat</strong> (<span class="arithmatex">\(8\)</span> kites), and <span class="arithmatex">\(\mathrm{Tile}(\sqrt{3},1)\)</span> is <strong>The Turtle</strong> (<span class="arithmatex">\(10\)</span> kites)—both aperiodic!</li>
+<li>Every shape in the continuum <span class="arithmatex">\(\mathrm{Tile}(a,b)\)</span> for <span class="arithmatex">\(a, b &gt; 0\)</span> is aperiodic <em>except</em> when <span class="arithmatex">\(a = b\)</span> (<span class="arithmatex">\(\mathrm{Tile}(1,1)\)</span>), which leads directly to the next discovery: <strong>The Spectre</strong>.</li>
+</ol>
+</details>
+<hr />
+<h2 id="the-spectre-an-aperiodic-tile-that-never-flips">The Spectre: an aperiodic tile that never flips</h2>
+<p>The same team answered that follow-up with the <strong>Spectre</strong>, published later
+in 2023. It is a strictly chiral aperiodic monotile: its valid tilings use
+rotations and translations, but not reflected copies. The paper establishes
+aperiodicity through a hierarchical substitution system.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">The tile</label><label for="__tabbed_2_2">A small patch</label><label for="__tabbed_2_3">A larger patch</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="One Spectre tile." src="../../../../../assets/images/aperiodic-tilings/spectre-tile.svg" /></p>
+<p><em>Image: Smith, Myers, Kaplan, and Goodman-Strauss, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Spectre_aperiodic_monotile_single.svg">file page</a>.</em></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="A small patch of Spectre tiles with the same handedness." src="../../../../../assets/images/aperiodic-tilings/spectre-patch.svg" /></p>
+<p><em>Image: Smith, Myers, Kaplan, and Goodman-Strauss, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Spectre_aperiodic_monotile_small_patch.svg">file page</a>.</em></p>
+</div>
+<div class="tabbed-block">
+<p><img alt="A large colored patch of a Spectre tiling." src="../../../../../assets/images/aperiodic-tilings/spectre-large-patch.png" /></p>
+<p><em>Image: Smith, Myers, Kaplan, and Goodman-Strauss, CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Aperiodic_monotile_tiling.png">file page</a>.</em></p>
+</div>
+</div>
+</div>
+<p>The Spectre is related to the equilateral member of the Hat family. The
+authors first study a weakly chiral case in which aperiodicity holds when
+reflections are forbidden, then modify the boundary to obtain the strictly
+chiral Spectre. The altered edges enforce handedness geometrically; the
+proof still relies on the substitution hierarchy, rather than on a visual
+impression that the outline looks difficult to flip.</p>
+<details class="example">
+<summary>Beginner Breakdown: How the Spectre Eliminates Flipping ('The Vampire Einstein')</summary>
+<p>Why did the team nickname the Spectre a <strong>"Vampire Einstein"</strong>? Because it is an <em>einstein</em> tile that <strong>never appears in a mirror</strong> (no reflections allowed)! Here is how it works:</p>
+<ol>
+<li><strong>Start with Equilateral <span class="arithmatex">\(\mathrm{Tile}(1,1)\)</span>:</strong> When you set <span class="arithmatex">\(a = 1\)</span> and <span class="arithmatex">\(b = 1\)</span> in the Hat/Turtle family, all <span class="arithmatex">\(14\)</span> edges have equal length. If you allow both left-handed and right-handed (flipped) copies, <span class="arithmatex">\(\mathrm{Tile}(1,1)\)</span> can tile periodically. <strong>However</strong>, if you forbid reflections and use only one handedness, <span class="arithmatex">\(\mathrm{Tile}(1,1)\)</span> is forced to act like a Hat in some places and a Turtle in others—tiling the plane <em>only</em> non-periodically!</li>
+<li><strong>Curve the Edges to Block Flipped Copies:</strong> To prevent anyone from ever placing a flipped tile, the authors modified the <span class="arithmatex">\(14\)</span> straight edges of <span class="arithmatex">\(\mathrm{Tile}(1,1)\)</span> into identical S-curves (or polygonal notches), producing the <strong>Spectre</strong>.</li>
+<li><strong>One-Sided Interlocking:</strong> When all Spectres are kept face-up (same handedness), the curves interlock seamlessly, and the tiles are forced into a hierarchical substitution system that never repeats. If you flip a Spectre upside-down, its curved edges clash with unflipped tiles, making reflections geometrically unusable.</li>
+</ol>
+</details>
+<table>
+<thead>
+<tr>
+<th>Milestone</th>
+<th>What it contributes</th>
+<th>Important qualification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Berger’s Wang tiles (1966)</td>
+<td>A finite set of matching squares that tiles only non-periodically</td>
+<td><span class="arithmatex">\(20,426\)</span> tiles in the original construction</td>
+</tr>
+<tr>
+<td>Robinson tiles (1971)</td>
+<td>A small system forcing a growing hierarchy</td>
+<td>Uses a set of marked prototiles</td>
+</tr>
+<tr>
+<td>Penrose tilings (1970s)</td>
+<td>Famous two-shape systems with five-fold order</td>
+<td>Matching rules are essential</td>
+</tr>
+<tr>
+<td>Ammann–Beenker tiling</td>
+<td>Square-and-rhombus octagonal order</td>
+<td>Uses substitution and matching decorations</td>
+</tr>
+<tr>
+<td>Pinwheel tiling (1994)</td>
+<td>A substitution with infinitely many orientations</td>
+<td>The triangle alone is not an aperiodic monotile</td>
+</tr>
+<tr>
+<td>Socolar–Taylor (2010)</td>
+<td>A one-shape hierarchical construction</td>
+<td>Non-local rules or disconnected variants matter</td>
+</tr>
+<tr>
+<td>Jeandel–Rao (2015)</td>
+<td>An optimal <span class="arithmatex">\(11\)</span>-tile, <span class="arithmatex">\(4\)</span>-color Wang set</td>
+<td>Minimality is specifically for Wang tiles</td>
+</tr>
+<tr>
+<td>Hat (2023)</td>
+<td>One connected two-dimensional aperiodic monotile</td>
+<td>Reflected copies are used</td>
+</tr>
+<tr>
+<td>Spectre (2023)</td>
+<td>A strictly chiral aperiodic monotile</td>
+<td>Reflections are not allowed</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="why-these-patterns-matter-beyond-the-puzzle">Why these patterns matter beyond the puzzle</h2>
+<p>The connection to <strong>quasicrystals</strong> is a particularly striking one. In 1982,
+Dan Shechtman observed diffraction patterns with symmetry that did not fit
+the then-standard picture of periodic crystals. The discovery helped establish
+that materials can have long-range order without ordinary translational
+periodicity. Shechtman received the 2011 Nobel Prize in Chemistry for the
+discovery of quasicrystals.</p>
+<p>A mathematical tiling is not a literal atomic model of every quasicrystal,
+but aperiodic patterns offer a useful way to think about order without a
+repeating unit cell. The same ideas continue to interest mathematicians and
+materials scientists; specific engineering benefits, however, depend on
+separate evidence and should not be inferred from a tiling proof alone.</p>
+<p>An ideal quasicrystal can be ordered enough to produce sharp diffraction
+patterns while lacking ordinary translational periodicity. The Nobel
+Foundation’s account describes Shechtman’s 1982 observation and notes that
+the discovery changed how scientists define crystals. Quasicrystals have
+since been synthesized in laboratories and identified in a natural mineral.
+Their unusual hardness, friction, and thermal properties have prompted
+materials research; the Nobel Foundation describes applications such as
+reinforcing steel and experimental cookware and engine components. Those
+are properties of particular quasicrystalline materials, not automatic
+consequences of arranging Hat or Spectre tiles.</p>
+<p>Claims sometimes attached to aperiodic “metamaterials”—for example,
+guaranteed crack resistance, zero Poisson’s ratio, or graphene-like quantum
+states—need separate experimental or theoretical sources. They do not
+follow from the Hat or Spectre aperiodicity proofs, so they are not presented
+here as established applications.</p>
+<div class="admonition note">
+<p class="admonition-title">Beginner Intuition: What Is a Quasicrystal?</p>
+<p>Before 1982, crystallography textbooks taught that solid materials fell into two categories:</p>
+<ul>
+<li><strong>Periodic Crystals (like table salt or quartz):</strong> Atoms line up in a repeating 3D unit cell. Firing an electron or X-ray beam through them produces sharp diffraction spots, restricted by periodic geometry to <span class="arithmatex">\(2\)</span>-, <span class="arithmatex">\(3\)</span>-, <span class="arithmatex">\(4\)</span>-, or <span class="arithmatex">\(6\)</span>-fold rotational symmetry.</li>
+<li><strong>Amorphous Solids / Glasses:</strong> Atoms are disordered at long range, producing diffuse, blurry rings under diffraction.</li>
+</ul>
+<p>When Dan Shechtman examined a rapidly cooled aluminum–manganese alloy in April 1982, he saw <strong>sharp diffraction spots arranged with <span class="arithmatex">\(10\)</span>-fold (<span class="arithmatex">\(5\)</span>-fold) symmetry</strong>—showing that matter can possess strict long-range order without a repeating periodic lattice, much like a 3D counterpart of a Penrose tiling.</p>
+</div>
+<hr />
+<h3 id="where-they-could-be-applied">Where they could be applied</h3>
+<p>Aperiodic shapes and tilings serve three major purposes across mathematics, theoretical computer science, and materials science: proving how local rules control infinite space, demonstrating the limits of computer algorithms, and modeling non-repeating atomic structures in physics and chemistry.</p>
+<p>Below is the detailed breakdown in MkDocs-compatible Markdown format.</p>
+<hr />
+<h4 id="1-pure-mathematics-how-local-rules-control-global-space">1. Pure Mathematics: How Local Rules Control Global Space</h4>
+<p>At first glance, a tile on one side of a floor has no way of "knowing" what a tile is doing a mile away. The primary mathematical purpose of aperiodic shapes is to show that <strong>purely local rules can force an infinite global structure</strong> that never repeats by translation:</p>
+<ul>
+<li><strong>Testing the Limits of Geometry:</strong> For decades, mathematicians asked whether a set of shapes could cover an infinite plane without gaps or overlaps while making <em>every</em> repeating pattern impossible.</li>
+<li><strong>Forcing Hierarchy Without Blueprints:</strong> Through edge colors, notches, or pure geometry, these shapes force small patches to assemble into larger clusters (<strong>supertiles</strong> or <strong>metatiles</strong>), which in turn assemble into even larger clusters at successively bigger scales.</li>
+<li><strong>Solving the "Einstein" Monotile Problem:</strong> The decades-long progression from 20,426 tiles down to 2 tiles (Penrose) and finally 1 tile (<strong>The Hat</strong> and <strong>The Spectre</strong> in 2023) answered a foundational question in geometry: a single connected shape's outline alone is enough to forbid translational repetition across an infinite plane.</li>
+</ul>
+<hr />
+<h4 id="2-computer-science-proving-what-computers-can-never-solve">2. Computer Science: Proving What Computers Can Never Solve</h4>
+<p>Before aperiodic tilings became famous in art or physics, they were invented by logicians to study the limits of computation:</p>
+<ul>
+<li><strong>Turning Geometry into Calculation:</strong> In 1961, logician Hao Wang introduced square tiles with colored edges (<strong>Wang tiles</strong>) that can slide but cannot rotate or flip. Because matching edge colors restrict which neighbors can meet, rows of tiles can encode sequential steps in a mathematical calculation.</li>
+<li><strong>The "Domino Problem":</strong> Wang asked whether a universal computer algorithm could take <em>any</em> finite set of tiles and decide in advance whether they can cover the infinite plane.</li>
+<li><strong>Proving Undecidability:</strong> Wang realized that if every tile set that covers the plane could also do so in a repeating (periodic) loop, a computer could eventually find that loop. When Robert Berger discovered the first aperiodic set of 20,426 Wang tiles in 1966, it proved that tiles can cover the plane without <em>ever</em> entering a repeating loop. This helped prove that <strong>no general algorithm exists</strong> to decide whether an arbitrary set of Wang tiles can tile the plane—linking geometry directly to undecidability and the Halting Problem through reductions in computability theory.</li>
+</ul>
+<hr />
+<h4 id="3-physics-chemistry-understanding-quasicrystals">3. Physics &amp; Chemistry: Understanding Quasicrystals</h4>
+<p>For generations, crystallography assumed that for a solid material to have long-range atomic order, its atoms had to be arranged in a repeating, periodic 3D grid. Aperiodic tilings provided the conceptual framework to overturn that rule:</p>
+<ul>
+<li><strong>A Blueprint for Non-Repeating Order:</strong> In 1982, scientist Dan Shechtman observed diffraction patterns in a metal alloy with symmetry that did not fit standard periodic crystals. His discovery proved that physical matter can possess strict long-range order—producing sharp diffraction patterns—without having ordinary translational periodicity.</li>
+<li><strong>Redefining Crystals (2011 Nobel Prize):</strong> This discovery forced scientists to alter the official definition of a crystal to include <strong>quasicrystals</strong>, earning Shechtman the 2011 Nobel Prize in Chemistry.</li>
+<li><strong>Conceptual Modeling:</strong> While a 2D mathematical tiling is not a literal atomic model of every quasicrystal, aperiodic patterns (such as Penrose's five-fold tilings and Ammann–Beenker's eight-fold tilings) give physicists and chemists a rigorous mathematical way to understand order without a repeating unit cell.</li>
+</ul>
+<hr />
+<h4 id="4-real-world-materials-engineering-applications">4. Real-World Materials &amp; Engineering Applications</h4>
+<p>Quasicrystals—which have both been synthesized in laboratories and found in a natural mineral—exhibit physical properties that differ sharply from ordinary periodic metals:</p>
+<ul>
+<li><strong>Unusual Physical Properties:</strong> Quasicrystalline materials are noted for their unusual hardness, low friction, and distinctive thermal properties.</li>
+<li><strong>Industrial Uses of Quasicrystals:</strong> According to the Nobel Foundation, these properties have led to materials research and practical applications including:</li>
+<li><strong>Reinforcing steel</strong> to create exceptionally strong alloys.</li>
+<li><strong>Experimental cookware coatings</strong> that take advantage of low surface friction and hardness.</li>
+<li><strong>Engine components</strong> where durability and thermal insulation are valuable.</li>
+</ul>
+<hr />
+<h4 id="5-separating-proven-applications-from-metamaterial-hype">5. Separating Proven Applications from "Metamaterial" Hype</h4>
+<p>When the <strong>Hat</strong> and <strong>Spectre</strong> monotiles were discovered in 2023, many popular discussions speculated about futuristic engineering uses, so it is important to keep a clear scientific boundary between mathematical proofs and physical materials:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Category</th>
+<th style="text-align: left;">What Is Established</th>
+<th style="text-align: left;">What Requires Separate Proof</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Mathematical Proof</strong></td>
+<td style="text-align: left;">The Hat and Spectre prove that a single 2D shape can force non-periodic tilings across an infinite plane.</td>
+<td style="text-align: left;">A tiling proof alone does not automatically guarantee engineering benefits.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Quasicrystal Materials</strong></td>
+<td style="text-align: left;">Particular quasicrystalline materials exhibit unusual hardness, friction, and thermal properties, with applications in reinforcing steel, experimental cookware, and engine components.</td>
+<td style="text-align: left;">Those properties belong to particular quasicrystalline materials and are not automatic consequences of arranging Hat or Spectre tiles.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Aperiodic Metamaterials</strong></td>
+<td style="text-align: left;">Aperiodic patterns offer mathematicians and materials scientists a useful way to think about order without a repeating unit cell.</td>
+<td style="text-align: left;">Claims of guaranteed crack resistance, zero Poisson's ratio, or graphene-like quantum states need separate experimental or theoretical sources and do not follow from the Hat or Spectre aperiodicity proofs.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="explore-further">Explore further</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/1506.06492">An aperiodic set of 11 Wang tiles — Jeandel and Rao</a></li>
+<li><a href="https://arxiv.org/abs/2303.10798">An aperiodic monotile — Smith, Myers, Kaplan, and Goodman-Strauss</a></li>
+<li><a href="https://arxiv.org/abs/2305.17743">A chiral aperiodic monotile — Smith, Myers, Kaplan, and Goodman-Strauss</a></li>
+<li><a href="https://tilings.math.uni-bielefeld.de/substitution/penrose-rhomb/">Penrose rhomb tiling — Bielefeld University tilings encyclopedia</a></li>
+<li><a href="https://tilings.math.uni-bielefeld.de/substitution/pinwheel/">Pinwheel tiling — Bielefeld University tilings encyclopedia</a></li>
+<li><a href="https://tilings.math.uni-bielefeld.de/substitution/ammann-beenker/">Ammann–Beenker tiling — Bielefeld University tilings encyclopedia</a></li>
+<li><a href="https://www.nobelprize.org/prizes/chemistry/2011/summary/">The Nobel Prize in Chemistry 2011</a></li>
+<li><a href="https://www.nobelprize.org/prizes/chemistry/2011/press-release/">The Nobel Foundation’s 2011 press release on quasicrystals</a></li>
+<li><a href="https://cs.uwaterloo.ca/~csk/hat/app.html">Interactive Hat tiling app</a></li>
+<li><a href="https://cs.uwaterloo.ca/~csk/spectre/app.html">Interactive Spectre tiling app</a></li>
+<li><a href="https://www.sitmo.com/a-tiling-that-never-repeats/">Sitmo article and its complete code</a></li>
+</ul>
+<hr />
+<h2 id="image-credits">Image credits</h2>
+<p>The locally stored figures below are unmodified copies of files hosted by
+Wikimedia Commons. Each linked file page records the original description
+and license. Creative Commons images are reproduced under their stated
+licenses; CC BY-SA material remains subject to the applicable share-alike
+terms.</p>
+<ul>
+<li><a href="https://commons.wikimedia.org/wiki/File:Wang_tiles.svg">Wang tiles</a> —
+  Anomie, public domain.</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Wang_16_tiles.svg">Wang 16 tiles</a> —
+  T. Yamaguchi, public domain.</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Robinson_tiles.svg">Robinson tiles</a> —
+  Archibald, public domain.</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Penrose_Tiling_(P1).svg">Penrose P1 tiling</a> —
+  Inductiveload, public domain.</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Kite_Dart.svg">Kite and dart tiles</a> —
+  Geometry guy, CC BY-SA 3.0.</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Penrose_Tiling_(Rhombi).svg">Penrose rhomb tiling</a> —
+  Inductiveload, public domain.</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Robinson_triangle_decompositions.svg">Robinson triangle decompositions</a> —
+  Geometry guy, CC BY-SA 3.0.</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Ammann%E2%80%93Beenker_tiling.svg">Ammann–Beenker tiling</a> —
+  Claudio Rocchini, CC BY 3.0.</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Pinwheel_3.jpg">Pinwheel tiling</a> —
+  Levochik, CC BY-SA 3.0.</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Socolar-Taylor_tiling.svg">Socolar–Taylor tiling</a> —
+  Parcly Taxel, CC BY-SA 4.0.</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Aperiodic_monotile_smith_2023.svg">Hat tiling</a> —
+  Gringer, CC BY-SA 4.0.</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Spectre_aperiodic_monotile_single.svg">Spectre tile</a>,
+  <a href="https://commons.wikimedia.org/wiki/File:Spectre_aperiodic_monotile_small_patch.svg">small patch</a>,
+  and <a href="https://commons.wikimedia.org/wiki/File:Aperiodic_monotile_tiling.png">large patch</a> —
+  David Smith, Joseph Samuel Myers, Craig S. Kaplan, and Chaim
+  Goodman-Strauss, CC BY-SA 4.0.</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Connect with me on email <a href="mailto:om.social@post.com">om.social@post.com</a>
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="mailto:om.social@post.com" target="_blank" rel="noopener" title="Email Gaz Light" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.indexes", "navigation.sections"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/tablesort@5.2.1/dist/tablesort.min.js"></script>
+      
+        <script src="../../../../../javascripts/tablesort.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">Check a public Wi-Fi hotspot before connecting</title>
+  <desc id="desc">Two access points show the same cafe Wi-Fi name: one is the expected hotspot, and one is an unverified lookalike. Confirm the correct network with the venue before joining.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#102b38"/>
+      <stop offset="1" stop-color="#174b53"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" rx="32" fill="url(#bg)"/>
+  <text x="600" y="78" fill="#f3f8f6" font-family="Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle">SAME NAME. DIFFERENT ACCESS POINTS.</text>
+  <rect x="82" y="139" width="482" height="265" rx="24" fill="#e5f5ed"/>
+  <rect x="636" y="139" width="482" height="265" rx="24" fill="#fbe9e4"/>
+  <circle cx="190" cy="267" r="62" fill="#c5eadb"/>
+  <path d="M157 267a33 33 0 0 1 66 0m-49 0a16 16 0 0 1 32 0" fill="none" stroke="#168b70" stroke-linecap="round" stroke-width="8"/>
+  <circle cx="190" cy="275" r="6" fill="#168b70"/>
+  <rect x="151" y="293" width="78" height="50" rx="9" fill="#174b53"/>
+  <circle cx="169" cy="329" r="4" fill="#74f0c9"/>
+  <circle cx="184" cy="329" r="4" fill="#74f0c9"/>
+  <text x="378" y="219" fill="#1f5949" font-family="Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">EXPECTED HOTSPOT</text>
+  <text x="378" y="265" fill="#102b38" font-family="Arial, sans-serif" font-size="27" font-weight="700" text-anchor="middle">Cafe Guest</text>
+  <text x="378" y="306" fill="#42636a" font-family="Arial, sans-serif" font-size="19" text-anchor="middle">Confirmed by the venue</text>
+  <text x="378" y="351" fill="#168b70" font-family="Arial, sans-serif" font-size="17" font-weight="700" text-anchor="middle">TRUST ONLY AFTER YOU VERIFY</text>
+  <circle cx="744" cy="267" r="62" fill="#f4d4cb"/>
+  <path d="M711 267a33 33 0 0 1 66 0m-49 0a16 16 0 0 1 32 0" fill="none" stroke="#be5a47" stroke-linecap="round" stroke-width="8"/>
+  <circle cx="744" cy="275" r="6" fill="#be5a47"/>
+  <rect x="705" y="293" width="78" height="50" rx="9" fill="#613b3a"/>
+  <circle cx="723" cy="329" r="4" fill="#ffae8e"/>
+  <circle cx="738" cy="329" r="4" fill="#ffae8e"/>
+  <text x="932" y="219" fill="#a34d40" font-family="Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">UNVERIFIED LOOKALIKE</text>
+  <text x="932" y="265" fill="#102b38" font-family="Arial, sans-serif" font-size="27" font-weight="700" text-anchor="middle">Cafe Guest</text>
+  <text x="932" y="306" fill="#765450" font-family="Arial, sans-serif" font-size="19" text-anchor="middle">Same label ≠ same network</text>
+  <text x="932" y="351" fill="#a34d40" font-family="Arial, sans-serif" font-size="17" font-weight="700" text-anchor="middle">DON'T GUESS FROM SIGNAL STRENGTH</text>
+  <path d="M600 156v228" stroke="#b9d8d1" stroke-dasharray="7 12" stroke-width="3" opacity=".65"/>
+  <text x="600" y="476" fill="#f3f8f6" font-family="Arial, sans-serif" font-size="22" font-weight="700" text-anchor="middle">Ask staff for the exact network name and sign-in method.</text>
+  <text x="600" y="523" fill="#b9d8d1" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">A familiar SSID or stronger signal is not proof of authenticity.</text>
+</svg>

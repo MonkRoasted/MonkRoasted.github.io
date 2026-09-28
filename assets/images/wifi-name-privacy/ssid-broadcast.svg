@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">A Wi-Fi network name is visible to nearby devices</title>
+  <desc id="desc">A home router broadcasts a network named HomeWiFi. A nearby phone can see the name, but the name itself is not the password.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#102b38"/>
+      <stop offset="1" stop-color="#174b53"/>
+    </linearGradient>
+    <linearGradient id="signal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6ee7c5" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#6ee7c5" stop-opacity=".42"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="620" rx="32" fill="url(#bg)"/>
+  <circle cx="230" cy="310" r="205" fill="url(#signal)"/>
+  <path d="M120 310a110 110 0 0 1 220 0M155 310a75 75 0 0 1 150 0" fill="none" stroke="#74f0c9" stroke-linecap="round" stroke-width="12" opacity=".8"/>
+  <circle cx="230" cy="310" r="10" fill="#74f0c9"/>
+  <rect x="145" y="340" width="170" height="108" rx="18" fill="#e7f2ee"/>
+  <rect x="165" y="359" width="130" height="47" rx="7" fill="#15323b"/>
+  <circle cx="180" cy="425" r="5" fill="#31ba91"/>
+  <circle cx="199" cy="425" r="5" fill="#31ba91"/>
+  <path d="M205 340V290m50 50v-50" stroke="#15323b" stroke-linecap="round" stroke-width="8"/>
+  <text x="230" y="492" fill="#f3f8f6" font-family="Arial, sans-serif" font-size="23" font-weight="700" text-anchor="middle">HOME ROUTER</text>
+  <path d="M382 310h360" stroke="#74f0c9" stroke-dasharray="10 14" stroke-linecap="round" stroke-width="5" opacity=".8"/>
+  <circle cx="450" cy="310" r="8" fill="#74f0c9"/>
+  <circle cx="555" cy="310" r="8" fill="#74f0c9"/>
+  <circle cx="660" cy="310" r="8" fill="#74f0c9"/>
+  <rect x="455" y="188" width="305" height="91" rx="18" fill="#f3f8f6"/>
+  <text x="607" y="225" fill="#477078" font-family="Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">NETWORK NAME (SSID)</text>
+  <text x="607" y="257" fill="#102b38" font-family="Arial, sans-serif" font-size="25" font-weight="700" text-anchor="middle">HomeWiFi</text>
+  <rect x="817" y="231" width="170" height="224" rx="28" fill="#e7f2ee"/>
+  <rect x="831" y="258" width="142" height="166" rx="12" fill="#15323b"/>
+  <rect x="850" y="284" width="104" height="59" rx="9" fill="#f3f8f6"/>
+  <path d="M881 319a17 17 0 0 1 34 0m-26 0a9 9 0 0 1 18 0" fill="none" stroke="#168b70" stroke-linecap="round" stroke-width="4"/>
+  <circle cx="898" cy="324" r="3" fill="#168b70"/>
+  <text x="902" y="371" fill="#f3f8f6" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">HomeWiFi</text>
+  <circle cx="902" cy="438" r="5" fill="#42636a"/>
+  <text x="902" y="492" fill="#f3f8f6" font-family="Arial, sans-serif" font-size="23" font-weight="700" text-anchor="middle">NEARBY PHONE</text>
+  <text x="600" y="558" fill="#b9d8d1" font-family="Arial, sans-serif" font-size="21" text-anchor="middle">Visible name ≠ password or permission to join</text>
+</svg>

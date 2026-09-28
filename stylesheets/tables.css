@@ -1,0 +1,21 @@
+.md-typeset table[data-sortable-initialized="true"] th {
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.md-typeset table[data-sortable-initialized="true"] th::after {
+  content: "↕";
+  display: inline-block;
+  margin-left: 0.45em;
+  opacity: 0.45;
+}
+
+.md-typeset table[data-sortable-initialized="true"] th[aria-sort="ascending"]::after {
+  content: "↑";
+  opacity: 1;
+}
+
+.md-typeset table[data-sortable-initialized="true"] th[aria-sort="descending"]::after {
+  content: "↓";
+  opacity: 1;
+}
