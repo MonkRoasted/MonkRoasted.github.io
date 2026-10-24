@@ -1,0 +1,4 @@
+.md-typeset .mermaid .nodeLabel p,
+.md-typeset .mermaid .cluster-label p {
+  color: #fff !important;
+}
